@@ -9,7 +9,8 @@ export type FaceDetections = WithFaceExpressions<WithFaceLandmarks<{
 
 export class FaceExpressionDetector {
 
-    readonly MODELS_PATH = '../assets/models/'; // '../beer-tasting/assets/models/'; // FOR PRODUCTION
+    readonly MODELS_PATH = '../juice/assets/models/'; // '../beer-tasting/assets/models/'; // FOR PRODUCTION
+    // readonly MODELS_PATH = '../assets/models/'; // '../beer-tasting/assets/models/'; // FOR PRODUCTION
 
     private videoElementRef: HTMLVideoElement | undefined;
     private canvas: HTMLCanvasElement | undefined;
