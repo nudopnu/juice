@@ -1,0 +1,29 @@
+<ng-container *ngIf="drinkingState$ | async as drinkingState">
+
+    <h2>{{getInstruction(drinkingState)}}</h2>
+
+    <div [ngSwitch]="drinkingState" class="col-center">
+
+        <ng-container *ngSwitchCase="'Rating'">
+            <beer-rating (onRatingCompleted)="onNextBeer($event)" />
+        </ng-container>
+
+        <ng-container *ngSwitchCase="'Choosing'">
+            <beer-beer-selection [beers]="beerSelection" (onBeerSelect)="onBeerSelect($event)" />
+        </ng-container>
+
+        <ng-container *ngSwitchCase="'Preparing'">
+            <beer-countdown (onCompleted)="onStartDrinking()" />
+        </ng-container>
+
+        <ng-container *ngSwitchCase="'Drinking'">
+            <beer-countdown [startValue]="secondsPerSample" (onCompleted)="onBeerCompleted()" />
+        </ng-container>
+
+        <ng-container *ngIf="settings$ | async as settings">
+            <beer-webcam [deviceId]="settings.videoInputDevice?.deviceId" (onStreamInit)="onStreamInit($event)" />
+        </ng-container>
+    </div>
+</ng-container>
+
+<beer-plot *ngIf="dataProvider?.plotData$ | async as data" [data]="data"></beer-plot>

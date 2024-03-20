@@ -1,0 +1,26 @@
+:host {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 400px repeat(2, 1fr);
+    align-items: center;
+}
+
+h1 {
+    grid-column: 1 / 4;
+}
+
+@media (max-width: 1250px) {
+    #host {
+        grid-template-columns: 400px;
+    }
+
+    h1 {
+        grid-column: 1;
+    }
+}
+
+#qr {
+    width: 250px;
+    height: 250px;
+}

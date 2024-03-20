@@ -1,0 +1,15 @@
+#beer-selection {
+    display: flex;
+    flex-flow: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    min-height: 100px;
+    color: #444;
+    height: 132px;
+}
+
+#button {
+    width: 100px;
+    height: 100px;
+}

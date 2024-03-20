@@ -1,0 +1,62 @@
+<nz-layout style="height: 100%;">
+
+  <nz-header style="padding: 10px 20px; justify-content: end;">
+    <a href="https://www.hochschule-trier.de/hauptcampus/wirtschaft" target="_blank">
+      <img id="logo" src="./assets/images/Logo_Hauptcampus_Wirtschaft.gif" alt="image">
+    </a>
+  </nz-header>
+
+  <nz-layout>
+
+    <nz-sider nzCollapsible nzWidth="200px" nzTheme="light" nzBreakpoint="lg" [nzCollapsedWidth]="0" [nzTrigger]="null">
+      <ul nz-menu nzTheme="light" nzMode="inline">
+
+        <li nz-menu-item [nzSelected]="this.isSelected('/')" routerLink="/" routerLinkActive="active">
+          <span nz-icon nzType="home" nzTheme="outline"></span>
+          <span>Home</span>
+        </li>
+
+        <li nz-menu-item [nzSelected]="this.isSelected('/info')" routerLink="/info" routerLinkActive="active">
+          <span nz-icon nzType="exclamation-circle" nzTheme="outline"></span>
+          <span>Informationen</span>
+        </li>
+
+        <li nz-menu-item [nzSelected]="this.isSelected('/register')" routerLink="/register" routerLinkActive="active">
+          <span nz-icon nzType="edit" nzTheme="outline"></span>
+          <span>Registrieren</span>
+        </li>
+
+        <li nz-menu-item nzTitle="Settings" #settingsMenuItem (click)="openSettings(settingsMenuItem)">
+          <span nz-icon nzType="setting"></span>
+          <span>Einstellungen</span>
+        </li>
+
+        <li nz-menu-item nzTitle="Export" #exportMenuItem (click)="export(exportMenuItem)">
+          <span nz-icon nzType="export"></span>
+          <span>Exportieren</span>
+        </li>
+
+        <li nz-menu-item nzTitle="Zurücksetzen" #updateMenuItem (click)="update(updateMenuItem)">
+          <span nz-icon nzType="sync"></span>
+          <span>Zurücksetzen</span>
+        </li>
+
+        <li style="display: flex; width: 100%; padding-top: 10px;">
+          <nz-upload class="userdata-uploader" nzListType="picture-card" [nzShowUploadList]="false"
+            [nzBeforeUpload]="onUpload">
+            <ng-container>
+              <span class="upload-icon" *ngIf="uploadingUserData" nz-icon nzType="loading"></span>
+              <div class="ant-upload-text" *ngIf="!uploadingUserData">Daten wieder-herstellen</div>
+            </ng-container>
+          </nz-upload>
+        </li>
+
+      </ul>
+    </nz-sider>
+
+    <nz-content style="display: flex; justify-content: center;">
+      <router-outlet></router-outlet>
+    </nz-content>
+
+  </nz-layout>
+</nz-layout>

@@ -1,0 +1,16 @@
+<ng-container *ngIf="state$ | async as state">
+    <ng-container *ngIf="settings$ | async as settings">
+
+        <ng-container [ngSwitch]="state">
+            <beer-opener *ngSwitchCase="'Default'" (onStart)="onStart()" [settings]="settings"></beer-opener>
+            <beer-user-scanning *ngSwitchCase="'Scanning'" (onUserRegistered)="onUserRegistered($event)"
+                [settings]="settings"></beer-user-scanning>
+            <beer-drinking *ngSwitchCase="'Recording'" [user]="currentUser"
+                (onBeerReactionCompleted)="onBeerReaction($event)"
+                (onUserCompleted)="onUserCompleted()"></beer-drinking>
+            <beer-user-statistics *ngSwitchCase="'Results'" [user]="currentUser!"
+                (onUserQuit)="onRestart()"></beer-user-statistics>
+        </ng-container>
+
+    </ng-container>
+</ng-container>

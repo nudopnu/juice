@@ -1,0 +1,16 @@
+#settings {
+    display: grid;
+    grid-template-columns: 20px repeat(2, 1fr)  30px;
+    align-items: center;
+    padding: 20px 0px;
+    gap: 20px;
+    padding: 20px;
+}
+
+.out {
+    text-decoration: line-through;
+}
+
+::ng-deep .ant-modal {
+    width: 768px !important;
+}

@@ -1,0 +1,14 @@
+<beer-user-data-form *ngIf="!qrCode" [(validUser)]="currentUser" />
+<div id="qr">
+    <beer-qr-code *ngIf="qrCode" [content]="qrCode"></beer-qr-code>
+</div>
+<div id="buttons">
+    <ng-container *ngIf="!qrCode">
+        <button nz-button nzType="default" nzShape="round" [disabled]="!currentUser" (click)="generateQrCode()">
+            QR Code generieren
+        </button>
+    </ng-container>
+    <ng-container *ngIf="!!qrCode">
+        <button nz-button nzType="default" nzShape="round" (click)="back()">Zurück</button>
+    </ng-container>
+</div>

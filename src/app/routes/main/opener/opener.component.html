@@ -1,0 +1,13 @@
+<h1 style="text-align: center; margin: 0;">Saft-Tasting</h1>
+<beer-webcam (onStreamInit)="onStreamInit($event)" [deviceId]="settings.videoInputDevice?.deviceId"></beer-webcam>
+<ng-container *ngIf="lazyFaceExpressions$ | async as faceExpressions">
+    <beer-radar-chart [faceExpression]="faceExpressions"></beer-radar-chart>
+</ng-container>
+<div style="display: flex; justify-content: center;">
+    <button nz-button id="qr" (click)="onStart.emit()">
+        <nz-qrcode nzValue="https://nudopnu.github.io/beer-tasting/register" nzLevel="H"></nz-qrcode>
+        <div>Teilnehmen</div>
+    </button>
+</div>
+
+<beer-statistics></beer-statistics>
