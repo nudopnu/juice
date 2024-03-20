@@ -6,6 +6,7 @@
     "start": "ng serve",
     "build": "ng build --output-path ../docs --base-href /beer-tasting/",
     "watch": "ng build --watch --configuration development",
+    "build:prod": "ng build --configuration production --base-href /juice/",
     "test": "ng test"
   },
   "private": true,
