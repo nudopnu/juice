@@ -4,9 +4,9 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --output-path ../docs --base-href /beer-tasting/",
+    "build": "ng build --output-path ../docs --base-href /juice/",
     "watch": "ng build --watch --configuration development",
-    "build:prod": "ng build --configuration production --base-href /juice/",
+    "build:prod": "ng build --base-href /juice/",
     "test": "ng test"
   },
   "private": true,
